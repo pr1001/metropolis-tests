@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>Simple Game Experiments</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="tests.js"></script>
+		<script type="text/javascript">
+  		$(document).ready(function() {
+    		tests.setGrid(5, 5)
+    		tests.animals = [new Animal('x', 0, 0, true), new Animal('o', 4, 4, false), new Animal('a', 2, 0, false), new Animal('e', 0, 2, false), new Animal('i', 2, 2, false)]
+    		$("#next").click(function() {
+      		tests.moveAll();
+    		})
+  		})
+		</script>
+		
+		<style type="text/css">
+  		table#grid {
+      	border-width: 1px;
+      	border-spacing: 2px;
+      	border-style: outset;
+      	border-color: gray;
+      	border-collapse: separate;
+      	background-color: white;
+      }
+      table#grid td {
+      	width: 10px;
+      	height: 10px;
+      	border-width: 1px;
+      	padding: 1px;
+      	border-style: inset;
+      	border-color: gray;
+      }
+		</style>
+	</head>
+	<body>
+	
+  	<h1>Test 1: Predator and Prey</h1>
+	
+  	<table id="grid">
+  	</table>
+	
+  	<button id="next">Next</button>
+	
+  	<p>
+    	Clicking Next will have each living animal move once. Predators will first look for an adjacent prey and attack it. Failing that, they will fall back on normal movement, which is to randomly move to an adjacent square. 
+  	</p>
+	
+	</body>
+</html>
